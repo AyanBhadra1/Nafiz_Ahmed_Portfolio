@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Experience - Nafiz Ahmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+        .timeline-line {
+            position: relative;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+        .achievement-card {
+            transition: all 0.3s ease;
+        }
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Nafiz Ahmed</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+                        <a href="skills.html" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
+                        <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+                        <a href="experience.html" class="nav-link text-gray-900 font-medium">Experience</a>
+                        <a href="education.html" class="nav-link text-gray-600 hover:text-gray-900">Education</a>
+                        <a href="certificates.html" class="nav-link text-gray-600 hover:text-gray-900">Certificates</a>
+                        <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
+                <a href="experience.html" class="block px-3 py-2 text-gray-900 font-medium">Experience</a>
+                <a href="education.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Education</a>
+                <a href="certificates.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Certificates</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Professional Experience</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+                    Leadership roles, academic projects, and professional development activities that have shaped my skills and expertise
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Career Journey</h2>
+                <p class="text-xl text-gray-600">Key milestones and experiences in my professional development</p>
+            </div>
+
+            <div class="timeline-line">
+                <!-- Current Position -->
+                <div class="timeline-item reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Student Representative</h3>
+                                <p class="text-purple-600 font-semibold text-lg">Departmental Activities • AIUB</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-800 px-4 py-2 rounded-full font-medium">Sep 2023 – Present</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Serving as a bridge between students and faculty, organizing departmental events, and representing student interests. 
+                            Successfully coordinated multiple seminars, workshops, and inter-departmental activities that enhanced student engagement by 40%.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Key Responsibilities</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Organize seminars and workshops</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Coordinate inter-departmental events</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Manage student orientation programs</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Facilitate student-faculty communication</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Achievements</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>40% increase in student engagement</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>100+ students oriented successfully</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>5+ major events organized</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-yellow-500 mr-2"></i>Improved departmental communication</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Previous Experience -->
+                <div class="timeline-item reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                            <i class="fas fa-project-diagram"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Student Project Participant</h3>
+                                <p class="text-blue-600 font-semibold text-lg">Academic Coursework • AIUB</p>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full font-medium">Jan 2024 – Present</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Actively involved in collaborative project-based learning, working on circuit design and programming projects. 
+                            Enhanced technical skills while developing leadership and presentation abilities through hands-on experience.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Project Areas</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-microchip text-blue-500 mr-2"></i>Circuit design and implementation</li>
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-2"></i>Programming applications</li>
+                                    <li class="flex items-center"><i class="fas fa-users text-blue-500 mr-2"></i>Team collaboration</li>
+                                    <li class="flex items-center"><i class="fas fa-presentation text-blue-500 mr-2"></i>Technical presentations</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Skills Developed</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Technical problem-solving</li>
+                                    <li class="flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Project management</li>
+                                    <li class="flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Communication skills</li>
+                                    <li class="flex items-center"><i class="fas fa-lightbulb text-yellow-500 mr-2"></i>Research methodology</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Early Experience -->
+                <div class="timeline-item reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center text-white text-2xl font-bold shadow-lg">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Active Member</h3>
+                                <p class="text-green-600 font-semibold text-lg">AIUB Computer Club</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-4 py-2 rounded-full font-medium">Oct 2023 – Present</span>
+                        </div>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Active participation in coding competitions, workshops, and technical discussions. 
+                            Contributing to the club's mission of promoting technology education and fostering a collaborative learning environment.
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Activities</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-trophy text-green-500 mr-2"></i>Coding competitions</li>
+                                    <li class="flex items-center"><i class="fas fa-trophy text-green-500 mr-2"></i>Technical workshops</li>
+                                    <li class="flex items-center"><i class="fas fa-trophy text-green-500 mr-2"></i>Knowledge sharing sessions</li>
+                                    <li class="flex items-center"><i class="fas fa-trophy text-green-500 mr-2"></i>Tech discussions</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-3">Learning Outcomes</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-graduation-cap text-purple-500 mr-2"></i>Competitive programming skills</li>
+                                    <li class="flex items-center"><i class="fas fa-graduation-cap text-purple-500 mr-2"></i>Industry best practices</li>
+                                    <li class="flex items-center"><i class="fas fa-graduation-cap text-purple-500 mr-2"></i>Network building</li>
+                                    <li class="flex items-center"><i class="fas fa-graduation-cap text-purple-500 mr-2"></i>Technology awareness</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements & Impact -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Key Achievements & Impact</h2>
+                <p class="text-xl text-gray-600">Measurable outcomes and contributions from my professional experiences</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">40%</h3>
+                    <p class="text-gray-600 font-medium">Increase in Student Engagement</p>
+                    <p class="text-sm text-gray-500 mt-2">Through organized events and activities</p>
+                </div>
+
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">100+</h3>
+                    <p class="text-gray-600 font-medium">Students Oriented</p>
+                    <p class="text-sm text-gray-500 mt-2">Successfully managed orientation programs</p>
+                </div>
+
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calendar-alt text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">5+</h3>
+                    <p class="text-gray-600 font-medium">Major Events Organized</p>
+                    <p class="text-sm text-gray-500 mt-2">Seminars, workshops, and competitions</p>
+                </div>
+
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Multiple</h3>
+                    <p class="text-gray-600 font-medium">Programming Projects</p>
+                    <p class="text-sm text-gray-500 mt-2">Completed with team collaboration</p>
+                </div>
+
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Active</h3>
+                    <p class="text-gray-600 font-medium">Competition Participation</p>
+                    <p class="text-sm text-gray-500 mt-2">Regular coding competition entrant</p>
+                </div>
+
+                <div class="achievement-card reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">Strong</h3>
+                    <p class="text-gray-600 font-medium">Professional Network</p>
+                    <p class="text-sm text-gray-500 mt-2">Built through club activities</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Gained -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Skills & Competencies Developed</h2>
+                <p class="text-xl text-gray-600">Professional skills enhanced through practical experience</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-8 text-center">Technical Skills</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-purple-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Programming & Development</h4>
+                                <p class="text-gray-600 text-sm">Enhanced through project-based learning</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-tools text-blue-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Technical Documentation</h4>
+                                <p class="text-gray-600 text-sm">Improved through LaTeX and report writing</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-microchip text-green-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Circuit Design</h4>
+                                <p class="text-gray-600 text-sm">Practical experience in digital systems</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <h3 class="text-2xl font-semibold mb-8 text-center">Soft Skills</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-users text-orange-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Leadership</h4>
+                                <p class="text-gray-600 text-sm">Developed through representative roles</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-comments text-red-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Communication</h4>
+                                <p class="text-gray-600 text-sm">Enhanced through presentations and coordination</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-yellow-100 rounded-lg flex items-center justify-center mr-4">
+                                <i class="fas fa-calendar-alt text-yellow-600"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-gray-900">Event Management</h4>
+                                <p class="text-gray-600 text-sm">Practical experience in organizing activities</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2">Nafiz Ahmed</h3>
+                <p class="text-gray-400">Computer Science Student • AIUB</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:nafiz.ahmed@example.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Nafiz Ahmed. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
