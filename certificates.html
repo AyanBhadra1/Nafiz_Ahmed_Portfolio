@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates & Awards - Nafiz Ahmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .certificate-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .certificate-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .certificate-icon {
+            transition: transform 0.3s ease;
+        }
+        .certificate-card:hover .certificate-icon {
+            transform: scale(1.1);
+        }
+        .splide__slide {
+            padding: 0 10px;
+        }
+        .badge {
+            transition: all 0.3s ease;
+        }
+        .badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Nafiz Ahmed</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+                        <a href="skills.html" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
+                        <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+                        <a href="experience.html" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
+                        <a href="education.html" class="nav-link text-gray-600 hover:text-gray-900">Education</a>
+                        <a href="certificates.html" class="nav-link text-gray-900 font-medium">Certificates</a>
+                        <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
+                <a href="experience.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Experience</a>
+                <a href="education.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Education</a>
+                <a href="certificates.html" class="block px-3 py-2 text-gray-900 font-medium">Certificates</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Certificates & Awards</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+                    Professional certifications, academic achievements, and recognitions that validate my skills and expertise
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Badges -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Achievement Highlights</h2>
+                <p class="text-xl text-gray-600">Key accomplishments and recognitions</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="badge reveal bg-gradient-to-br from-purple-100 to-purple-200 p-8 rounded-2xl text-center">
+                    <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Academic Excellence</h3>
+                    <p class="text-gray-600 text-sm">Consistent high performance throughout educational journey</p>
+                </div>
+
+                <div class="badge reveal bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-2xl text-center">
+                    <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Competition Success</h3>
+                    <p class="text-gray-600 text-sm">Active participation in coding competitions and technical challenges</p>
+                </div>
+
+                <div class="badge reveal bg-gradient-to-br from-green-100 to-green-200 p-8 rounded-2xl text-center">
+                    <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership Recognition</h3>
+                    <p class="text-gray-600 text-sm">Acknowledged for leadership in student organizations</p>
+                </div>
+
+                <div class="badge reveal bg-gradient-to-br from-yellow-100 to-yellow-200 p-8 rounded-2xl text-center">
+                    <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-2xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Service</h3>
+                    <p class="text-gray-600 text-sm">Recognition for volunteer work and social initiatives</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Gallery -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Certificate Gallery</h2>
+                <p class="text-xl text-gray-600">Professional development and skill validation</p>
+            </div>
+
+            <!-- Splide Carousel -->
+            <div class="splide reveal" id="certificate-carousel">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        <!-- Certificate 1 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-graduation-cap text-3xl text-purple-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Bachelor of Science</h3>
+                                    <p class="text-purple-600 font-medium">Computer Science & Engineering</p>
+                                    <p class="text-gray-500 text-sm">American International University-Bangladesh</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Status:</span>
+                                        <span class="text-green-600 font-medium">In Progress</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Expected:</span>
+                                        <span class="text-gray-900 font-medium">January 2027</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Current GPA:</span>
+                                        <span class="text-purple-600 font-bold">3.8/4.0</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Programming</span>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Algorithms</span>
+                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Software Engineering</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Certificate 2 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-school text-3xl text-blue-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Higher Secondary Certificate</h3>
+                                    <p class="text-blue-600 font-medium">Science Division</p>
+                                    <p class="text-gray-500 text-sm">St. Gregory's High School & College</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Year:</span>
+                                        <span class="text-gray-900 font-medium">2022</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Grade:</span>
+                                        <span class="text-blue-600 font-bold">GPA 5.0/5.0</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Division:</span>
+                                        <span class="text-green-600 font-medium">Science</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Physics</span>
+                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Chemistry</span>
+                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Mathematics</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Certificate 3 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-book text-3xl text-green-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Secondary School Certificate</h3>
+                                    <p class="text-green-600 font-medium">Science Division</p>
+                                    <p class="text-gray-500 text-sm">Dhaka Collegiate School</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Year:</span>
+                                        <span class="text-gray-900 font-medium">2020</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Grade:</span>
+                                        <span class="text-green-600 font-bold">GPA 5.0/5.0</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Achievement:</span>
+                                        <span class="text-purple-600 font-medium">Excellent Performance</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">General Science</span>
+                                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Mathematics</span>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">English</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Certificate 4 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-code text-3xl text-red-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Programming Competition</h3>
+                                    <p class="text-red-600 font-medium">Inter-University Contest</p>
+                                    <p class="text-gray-500 text-sm">AIUB Computer Club</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Year:</span>
+                                        <span class="text-gray-900 font-medium">2024</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Position:</span>
+                                        <span class="text-red-600 font-bold">Top 10 Finalist</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Skills:</span>
+                                        <span class="text-green-600 font-medium">Problem Solving</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">C++</span>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Algorithms</span>
+                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Data Structures</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Certificate 5 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-users text-3xl text-yellow-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership Certificate</h3>
+                                    <p class="text-yellow-600 font-medium">Student Representative</p>
+                                    <p class="text-gray-500 text-sm">AIUB CSE Department</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Year:</span>
+                                        <span class="text-gray-900 font-medium">2023-24</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Role:</span>
+                                        <span class="text-yellow-600 font-bold">Event Coordinator</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Impact:</span>
+                                        <span class="text-green-600 font-medium">40% Engagement</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Leadership</span>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Organization</span>
+                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Communication</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- Certificate 6 -->
+                        <li class="splide__slide">
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
+                                <div class="text-center mb-6">
+                                    <div class="certificate-icon w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <i class="fas fa-heart text-3xl text-indigo-600"></i>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Service</h3>
+                                    <p class="text-indigo-600 font-medium">Volunteer Recognition</p>
+                                    <p class="text-gray-500 text-sm">School & College Programs</p>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Period:</span>
+                                        <span class="text-gray-900 font-medium">2017-2020</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Hours:</span>
+                                        <span class="text-indigo-600 font-bold">200+ Volunteer</span>
+                                    </div>
+                                    <div class="flex justify-between">
+                                        <span class="text-gray-600">Focus:</span>
+                                        <span class="text-green-600 font-medium">Education Support</span>
+                                    </div>
+                                </div>
+                                <div class="mt-6 pt-6 border-t border-gray-200">
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Social Work</span>
+                                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Mentoring</span>
+                                        <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Community</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Validation -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Skills Validation</h2>
+                <p class="text-xl text-gray-600">Certifications and achievements that demonstrate my technical competencies</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="reveal bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-code text-purple-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Programming Proficiency</h3>
+                            <p class="text-gray-600 text-sm">Validated through competitions</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>C/C++ Programming</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Java Development</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Python Applications</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Web Technologies</li>
+                    </ul>
+                </div>
+
+                <div class="reveal bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-users text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Leadership Skills</h3>
+                            <p class="text-gray-600 text-sm">Proven through roles</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Event Organization</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Team Coordination</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Public Speaking</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Student Mentoring</li>
+                    </ul>
+                </div>
+
+                <div class="reveal bg-gray-50 p-8 rounded-2xl">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-tools text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold">Technical Tools</h3>
+                            <p class="text-gray-600 text-sm">Mastered through practice</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Git Version Control</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>LaTeX Documentation</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>VS Code Development</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-500 mr-2"></i>Database Management</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-6">View Detailed Credentials</h2>
+                <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                    Interested in seeing more details about my certifications and achievements? 
+                    I can provide additional documentation and verification upon request.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="contact.html" class="bg-purple-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-purple-700 transition-all duration-300 transform hover:scale-105">
+                        Request Documentation
+                    </a>
+                    <a href="skills.html" class="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 transform hover:scale-105">
+                        View Skills
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2">Nafiz Ahmed</h3>
+                <p class="text-gray-400">Computer Science Student • AIUB</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:nafiz.ahmed@example.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Nafiz Ahmed. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Initialize Splide carousel
+        document.addEventListener('DOMContentLoaded', function() {
+            new Splide('#certificate-carousel', {
+                type: 'loop',
+                perPage: 3,
+                perMove: 1,
+                gap: '2rem',
+                autoplay: true,
+                interval: 4000,
+                pauseOnHover: true,
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
+                    },
+                    768: {
+                        perPage: 1,
+                    }
+                }
+            }).mount();
+        });
+    </script>
+</body>
+</html>
