@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Certificates & Awards - Nafiz Ahmed</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
@@ -63,6 +63,55 @@
         .badge:hover {
             transform: scale(1.05);
         }
+
+        /* Modal styling */
+        .cert-modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(10,11,13,0.7);
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .cert-modal.active {
+            display: flex;
+        }
+        .cert-modal .modal-box {
+            max-width: 1100px;
+            width: 100%;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(2,6,23,0.6);
+        }
+        .cert-modal .modal-header {
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding: 1rem 1.25rem;
+            border-bottom: 1px solid #eee;
+        }
+        .cert-modal .modal-body {
+            padding: 1rem;
+            text-align: center;
+        }
+        .cert-modal img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* small fix for long card heights on very small screens */
+        @media (max-width:420px){
+            .splide__slide .certificate-card { padding: 1.25rem; }
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -111,7 +160,7 @@
             <div class="reveal">
                 <h1 class="text-5xl md:text-6xl font-bold mb-6">Certificates & Awards</h1>
                 <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
-                    Professional certifications, academic achievements, and recognitions that validate my skills and expertise
+                    Professional and academic certificates validating achievements and participation
                 </p>
             </div>
         </div>
@@ -131,23 +180,23 @@
                         <i class="fas fa-medal text-2xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Academic Excellence</h3>
-                    <p class="text-gray-600 text-sm">Consistent high performance throughout educational journey</p>
+                    <p class="text-gray-600 text-sm">High grades in SSC & HSC examinations</p>
                 </div>
 
                 <div class="badge reveal bg-gradient-to-br from-blue-100 to-blue-200 p-8 rounded-2xl text-center">
                     <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                         <i class="fas fa-trophy text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Competition Success</h3>
-                    <p class="text-gray-600 text-sm">Active participation in coding competitions and technical challenges</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Sport Participation</h3>
+                    <p class="text-gray-600 text-sm">Inter-school football participation & champion</p>
                 </div>
 
                 <div class="badge reveal bg-gradient-to-br from-green-100 to-green-200 p-8 rounded-2xl text-center">
                     <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <i class="fas fa-certificate text-2xl text-white"></i>
+                        <i class="fas fa-graduation-cap text-2xl text-white"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership Recognition</h3>
-                    <p class="text-gray-600 text-sm">Acknowledged for leadership in student organizations</p>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Arts Participation</h3>
+                    <p class="text-gray-600 text-sm">Recognized in art & music events</p>
                 </div>
 
                 <div class="badge reveal bg-gradient-to-br from-yellow-100 to-yellow-200 p-8 rounded-2xl text-center">
@@ -155,7 +204,7 @@
                         <i class="fas fa-heart text-2xl text-white"></i>
                     </div>
                     <h3 class="text-xl font-bold text-gray-900 mb-2">Community Service</h3>
-                    <p class="text-gray-600 text-sm">Recognition for volunteer work and social initiatives</p>
+                    <p class="text-gray-600 text-sm">Volunteer work during school and college programs</p>
                 </div>
             </div>
         </div>
@@ -166,222 +215,167 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16 reveal">
                 <h2 class="text-4xl font-bold text-gray-900 mb-4">Certificate Gallery</h2>
-                <p class="text-xl text-gray-600">Professional development and skill validation</p>
+                <p class="text-xl text-gray-600">Click "View Certificate" to see the scanned document</p>
             </div>
 
             <!-- Splide Carousel -->
             <div class="splide reveal" id="certificate-carousel">
                 <div class="splide__track">
                     <ul class="splide__list">
-                        <!-- Certificate 1 -->
+
+                        <!-- Art Participation Certificate -->
                         <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-graduation-cap text-3xl text-purple-600"></i>
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full flex flex-col justify-between">
+                                <div>
+                                    <div class="text-center mb-6">
+                                        <div class="certificate-icon w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-palette text-3xl text-green-600"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Art & Music Participation</h3>
+                                        <p class="text-green-600 font-medium">BulBul Academy of Fine Arts (BAFA)</p>
+                                        <p class="text-gray-500 text-sm">Participation Certificate — Cultural & Visual Arts Event, 2015</p>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Bachelor of Science</h3>
-                                    <p class="text-purple-600 font-medium">Computer Science & Engineering</p>
-                                    <p class="text-gray-500 text-sm">American International University-Bangladesh</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Status:</span>
-                                        <span class="text-green-600 font-medium">In Progress</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Expected:</span>
-                                        <span class="text-gray-900 font-medium">January 2027</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Current GPA:</span>
-                                        <span class="text-purple-600 font-bold">3.8/4.0</span>
+
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><strong>Recipient:</strong> Nafiz Ahmed</p>
+                                        <p><strong>Event:</strong> BAFA Inter-Branch Music & Drawing Competition</p>
+                                        <p><strong>Category:</strong> Drawing / Visual Arts</p>
+                                        <p><strong>Date:</strong> 16 December 2015</p>
+                                        <p><strong>Remarks:</strong> Recognized for participation and creative contribution</p>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
+
+                                <div class="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Programming</span>
-                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Algorithms</span>
-                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Software Engineering</span>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Drawing</span>
+                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Music</span>
+                                    </div>
+                                    <div>
+                                        <button
+                                            onclick="openCertModal('Art Participation Certificate.jpg','Art & Music Participation - BAFA (2015)')"
+                                            class="px-4 py-2 bg-green-600 text-white rounded-full font-medium hover:bg-green-700 transition-all">
+                                            View Certificate
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Certificate 2 -->
+                        <!-- Football Participation Certificate -->
                         <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-school text-3xl text-blue-600"></i>
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full flex flex-col justify-between">
+                                <div>
+                                    <div class="text-center mb-6">
+                                        <div class="certificate-icon w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-futbol text-3xl text-red-600"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">Inter-Class Football Tournament</h3>
+                                        <p class="text-red-600 font-medium">St. Gregory's High School & College</p>
+                                        <p class="text-gray-500 text-sm">Participation / Champion — December 11, 2021</p>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Higher Secondary Certificate</h3>
-                                    <p class="text-blue-600 font-medium">Science Division</p>
-                                    <p class="text-gray-500 text-sm">St. Gregory's High School & College</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Year:</span>
-                                        <span class="text-gray-900 font-medium">2022</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Grade:</span>
-                                        <span class="text-blue-600 font-bold">GPA 5.0/5.0</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Division:</span>
-                                        <span class="text-green-600 font-medium">Science</span>
+
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><strong>Recipient:</strong> Nafiz Ahmed</p>
+                                        <p><strong>Event:</strong> Inter-Class Football Tournament</p>
+                                        <p><strong>Roll / Class:</strong> Roll 5221059 — Class XI</p>
+                                        <p><strong>Date:</strong> 11 December 2021</p>
+                                        <p><strong>Result:</strong> Champion (College Group)</p>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
+
+                                <div class="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Physics</span>
-                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Chemistry</span>
-                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Mathematics</span>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Sports</span>
+                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Teamwork</span>
+                                    </div>
+                                    <div>
+                                        <button
+                                            onclick="openCertModal('Football Participation Certificate.jpg','Inter-Class Football Tournament - St. Gregory\\'s (2021)')"
+                                            class="px-4 py-2 bg-red-600 text-white rounded-full font-medium hover:bg-red-700 transition-all">
+                                            View Certificate
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Certificate 3 -->
+                        <!-- HSC Academic Transcript -->
                         <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-book text-3xl text-green-600"></i>
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full flex flex-col justify-between">
+                                <div>
+                                    <div class="text-center mb-6">
+                                        <div class="certificate-icon w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-file-alt text-3xl text-blue-600"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">HSC Academic Transcript</h3>
+                                        <p class="text-blue-600 font-medium">Board of Intermediate and Secondary Education, Dhaka</p>
+                                        <p class="text-gray-500 text-sm">Higher Secondary Certificate Examination — 2022</p>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Secondary School Certificate</h3>
-                                    <p class="text-green-600 font-medium">Science Division</p>
-                                    <p class="text-gray-500 text-sm">Dhaka Collegiate School</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Year:</span>
-                                        <span class="text-gray-900 font-medium">2020</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Grade:</span>
-                                        <span class="text-green-600 font-bold">GPA 5.0/5.0</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Achievement:</span>
-                                        <span class="text-purple-600 font-medium">Excellent Performance</span>
+
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><strong>Student:</strong> Nafiz Ahmed</p>
+                                        <p><strong>Institution:</strong> St. Gregory's High School & College</p>
+                                        <p><strong>Group:</strong> Science</p>
+                                        <p><strong>Publication Date:</strong> 08 February 2023</p>
+                                        <p><strong>Result Summary:</strong> GPA (without additional subject): 4.42 — Combined GPA: 4.92 (as on transcript)</p>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
+
+                                <div class="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">General Science</span>
-                                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Mathematics</span>
-                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">English</span>
+                                        <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Physics</span>
+                                        <span class="px-3 py-1 bg-teal-100 text-teal-800 rounded-full text-sm">Chemistry</span>
+                                        <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Mathematics</span>
+                                    </div>
+                                    <div>
+                                        <button
+                                            onclick="openCertModal('HSC.jpg','HSC Academic Transcript (2022)')"
+                                            class="px-4 py-2 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-all">
+                                            View Certificate
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Certificate 4 -->
+                        <!-- SSC Academic Transcript -->
                         <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-code text-3xl text-red-600"></i>
+                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full flex flex-col justify-between">
+                                <div>
+                                    <div class="text-center mb-6">
+                                        <div class="certificate-icon w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                            <i class="fas fa-file-certificate text-3xl text-orange-600"></i>
+                                        </div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">SSC Academic Transcript</h3>
+                                        <p class="text-orange-600 font-medium">Board of Intermediate and Secondary Education, Dhaka</p>
+                                        <p class="text-gray-500 text-sm">Secondary School Certificate Examination — 2020</p>
                                     </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Programming Competition</h3>
-                                    <p class="text-red-600 font-medium">Inter-University Contest</p>
-                                    <p class="text-gray-500 text-sm">AIUB Computer Club</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Year:</span>
-                                        <span class="text-gray-900 font-medium">2024</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Position:</span>
-                                        <span class="text-red-600 font-bold">Top 10 Finalist</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Skills:</span>
-                                        <span class="text-green-600 font-medium">Problem Solving</span>
+
+                                    <div class="space-y-2 text-gray-700">
+                                        <p><strong>Student:</strong> Nafiz Ahmed</p>
+                                        <p><strong>Institution:</strong> Dhaka Collegiate School</p>
+                                        <p><strong>Group:</strong> Science</p>
+                                        <p><strong>Publication Date:</strong> 31 May 2020</p>
+                                        <p><strong>Result Summary:</strong> GPA 5.00/5.00 — Outstanding academic performance</p>
                                     </div>
                                 </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
+
+                                <div class="mt-6 pt-6 border-t border-gray-200 flex items-center justify-between">
                                     <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">C++</span>
-                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Algorithms</span>
-                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Data Structures</span>
+                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Biology</span>
+                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Bangla</span>
+                                    </div>
+                                    <div>
+                                        <button
+                                            onclick="openCertModal('SSC.jpg','SSC Academic Transcript (2020)')"
+                                            class="px-4 py-2 bg-orange-600 text-white rounded-full font-medium hover:bg-orange-700 transition-all">
+                                            View Certificate
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </li>
 
-                        <!-- Certificate 5 -->
-                        <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-users text-3xl text-yellow-600"></i>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership Certificate</h3>
-                                    <p class="text-yellow-600 font-medium">Student Representative</p>
-                                    <p class="text-gray-500 text-sm">AIUB CSE Department</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Year:</span>
-                                        <span class="text-gray-900 font-medium">2023-24</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Role:</span>
-                                        <span class="text-yellow-600 font-bold">Event Coordinator</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Impact:</span>
-                                        <span class="text-green-600 font-medium">40% Engagement</span>
-                                    </div>
-                                </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm">Leadership</span>
-                                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Organization</span>
-                                        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Communication</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <!-- Certificate 6 -->
-                        <li class="splide__slide">
-                            <div class="certificate-card bg-white rounded-2xl p-8 shadow-lg h-full">
-                                <div class="text-center mb-6">
-                                    <div class="certificate-icon w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                                        <i class="fas fa-heart text-3xl text-indigo-600"></i>
-                                    </div>
-                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Service</h3>
-                                    <p class="text-indigo-600 font-medium">Volunteer Recognition</p>
-                                    <p class="text-gray-500 text-sm">School & College Programs</p>
-                                </div>
-                                <div class="space-y-3">
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Period:</span>
-                                        <span class="text-gray-900 font-medium">2017-2020</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Hours:</span>
-                                        <span class="text-indigo-600 font-bold">200+ Volunteer</span>
-                                    </div>
-                                    <div class="flex justify-between">
-                                        <span class="text-gray-600">Focus:</span>
-                                        <span class="text-green-600 font-medium">Education Support</span>
-                                    </div>
-                                </div>
-                                <div class="mt-6 pt-6 border-t border-gray-200">
-                                    <div class="flex flex-wrap gap-2">
-                                        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Social Work</span>
-                                        <span class="px-3 py-1 bg-orange-100 text-orange-800 rounded-full text-sm">Mentoring</span>
-                                        <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Community</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -499,8 +493,28 @@
         </div>
     </footer>
 
+    <!-- Certificate Modal -->
+    <div id="cert-modal" class="cert-modal" role="dialog" aria-hidden="true">
+        <div class="modal-box">
+            <div class="modal-header">
+                <div id="modal-title" class="text-lg font-semibold text-gray-900">Certificate</div>
+                <button id="modal-close" aria-label="Close" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times text-xl"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img id="modal-image" src="" alt="Certificate image">
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
     <script>
+        // Mobile menu toggle (keeps original behavior)
+        document.getElementById('mobile-menu-btn')?.addEventListener('click', function() {
+            document.getElementById('mobile-menu')?.classList.toggle('hidden');
+        });
+
         // Initialize Splide carousel
         document.addEventListener('DOMContentLoaded', function() {
             new Splide('#certificate-carousel', {
@@ -520,6 +534,49 @@
                     }
                 }
             }).mount();
+
+            // basic reveal on load
+            document.querySelectorAll('.reveal').forEach((el, i) => {
+                setTimeout(()=> el.classList.add('active'), 120 * i);
+            });
+        });
+
+        // Certificate modal functions
+        const certModal = document.getElementById('cert-modal');
+        const modalImage = document.getElementById('modal-image');
+        const modalTitle = document.getElementById('modal-title');
+        const modalClose = document.getElementById('modal-close');
+
+        function openCertModal(imagePath, title) {
+            // imagePath should match the filename in the project folder
+            // If you place images in a subfolder, update the path accordingly (e.g., 'resources/SSC.jpg')
+            modalImage.src = encodeURI(imagePath);
+            modalImage.alt = title;
+            modalTitle.textContent = title;
+            certModal.classList.add('active');
+            certModal.setAttribute('aria-hidden', 'false');
+            // prevent background scroll
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCertModal() {
+            certModal.classList.remove('active');
+            certModal.setAttribute('aria-hidden', 'true');
+            modalImage.src = '';
+            document.body.style.overflow = '';
+        }
+
+        // close handlers
+        modalClose?.addEventListener('click', closeCertModal);
+        certModal?.addEventListener('click', (e) => {
+            if (e.target === certModal) closeCertModal();
+        });
+
+        // keyboard accessibility: Esc to close
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && certModal.classList.contains('active')) {
+                closeCertModal();
+            }
         });
     </script>
 </body>
