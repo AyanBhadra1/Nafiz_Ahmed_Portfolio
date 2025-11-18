@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Timeline - Nafiz Ahmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .education-card {
+            transition: all 0.3s ease;
+        }
+        .education-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        .timeline-line {
+            position: relative;
+        }
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #667eea, #764ba2);
+            transform: translateX(-50%);
+        }
+        .achievement-badge {
+            transition: all 0.3s ease;
+        }
+        .achievement-badge:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Nafiz Ahmed</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+                        <a href="skills.html" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
+                        <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+                        <a href="experience.html" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
+                        <a href="education.html" class="nav-link text-gray-900 font-medium">Education</a>
+                        <a href="certificates.html" class="nav-link text-gray-600 hover:text-gray-900">Certificates</a>
+                        <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Skills</a>
+                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
+                <a href="experience.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Experience</a>
+                <a href="education.html" class="block px-3 py-2 text-gray-900 font-medium">Education</a>
+                <a href="certificates.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Certificates</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Education Timeline</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+                    My academic journey from foundational education to advanced computer science studies
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Timeline -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Academic Journey</h2>
+                <p class="text-xl text-gray-600">Building knowledge and skills through structured education</p>
+            </div>
+
+            <div class="timeline-line">
+                <!-- Current Education -->
+                <div class="reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-20 h-20 bg-purple-600 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="education-card bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-gray-900 mb-2">Bachelor of Science</h3>
+                                <p class="text-purple-600 font-semibold text-xl">Computer Science and Engineering</p>
+                                <p class="text-gray-600 text-lg">American International University-Bangladesh (AIUB)</p>
+                            </div>
+                            <span class="bg-purple-100 text-purple-800 px-6 py-3 rounded-full font-bold text-lg">2023 – 2027</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Key Coursework</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-book text-purple-500 mr-3"></i>Data Structures & Algorithms</li>
+                                    <li class="flex items-center"><i class="fas fa-book text-purple-500 mr-3"></i>Object-Oriented Programming</li>
+                                    <li class="flex items-center"><i class="fas fa-book text-purple-500 mr-3"></i>Database Management Systems</li>
+                                    <li class="flex items-center"><i class="fas fa-book text-purple-500 mr-3"></i>Computer Networks</li>
+                                    <li class="flex items-center"><i class="fas fa-book text-purple-500 mr-3"></i>Software Engineering</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Current Focus</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-3"></i>Programming Fundamentals</li>
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-3"></i>System Design Principles</li>
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-3"></i>Technical Documentation</li>
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-3"></i>Project Management</li>
+                                    <li class="flex items-center"><i class="fas fa-code text-blue-500 mr-3"></i>Research Methodology</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6">
+                            <h4 class="font-semibold text-gray-900 mb-4 text-lg">Academic Achievements</h4>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-purple-600">3.8/4.0</div>
+                                    <div class="text-sm text-gray-600">Current GPA</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-blue-600">15+</div>
+                                    <div class="text-sm text-gray-600">Courses Completed</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold text-green-600">5+</div>
+                                    <div class="text-sm text-gray-600">Projects Completed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Higher Secondary -->
+                <div class="reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                            <i class="fas fa-school"></i>
+                        </div>
+                    </div>
+                    <div class="education-card bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-gray-900 mb-2">Higher Secondary Certificate</h3>
+                                <p class="text-blue-600 font-semibold text-xl">Science Division</p>
+                                <p class="text-gray-600 text-lg">St. Gregory's High School & College, Dhaka</p>
+                            </div>
+                            <span class="bg-blue-100 text-blue-800 px-6 py-3 rounded-full font-bold text-lg">2020 – 2022</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Major Subjects</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-atom text-blue-500 mr-3"></i>Physics</li>
+                                    <li class="flex items-center"><i class="fas fa-flask text-blue-500 mr-3"></i>Chemistry</li>
+                                    <li class="flex items-center"><i class="fas fa-calculator text-blue-500 mr-3"></i>Mathematics</li>
+                                    <li class="flex items-center"><i class="fas fa-dna text-blue-500 mr-3"></i>Biology</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Achievements</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-medal text-yellow-500 mr-3"></i>Excellent Academic Performance</li>
+                                    <li class="flex items-center"><i class="fas fa-medal text-yellow-500 mr-3"></i>Science Club Participation</li>
+                                    <li class="flex items-center"><i class="fas fa-medal text-yellow-500 mr-3"></i>Community Service Activities</li>
+                                    <li class="flex items-center"><i class="fas fa-medal text-yellow-500 mr-3"></i>Leadership Development</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-blue-600 mb-2">GPA: 5.0/5.0</div>
+                                <div class="text-gray-600">Outstanding Performance in Science</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Education -->
+                <div class="reveal mb-16">
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="w-20 h-20 bg-green-600 rounded-full flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                            <i class="fas fa-book"></i>
+                        </div>
+                    </div>
+                    <div class="education-card bg-gray-50 rounded-2xl p-8 max-w-4xl mx-auto">
+                        <div class="flex flex-col md:flex-row items-start md:items-center justify-between mb-6">
+                            <div>
+                                <h3 class="text-3xl font-bold text-gray-900 mb-2">Secondary School Certificate</h3>
+                                <p class="text-green-600 font-semibold text-xl">Science Division</p>
+                                <p class="text-gray-600 text-lg">Dhaka Collegiate School, Dhaka</p>
+                            </div>
+                            <span class="bg-green-100 text-green-800 px-6 py-3 rounded-full font-bold text-lg">2018 – 2020</span>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Foundation Building</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-calculator text-green-500 mr-3"></i>General Mathematics</li>
+                                    <li class="flex items-center"><i class="fas fa-flask text-green-500 mr-3"></i>General Science</li>
+                                    <li class="flex items-center"><i class="fas fa-globe text-green-500 mr-3"></i>Social Studies</li>
+                                    <li class="flex items-center"><i class="fas fa-language text-green-500 mr-3"></i>English & Bengali</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-900 mb-4 text-lg">Early Development</h4>
+                                <ul class="space-y-2 text-gray-600">
+                                    <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-3"></i>Academic Excellence</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-3"></i>Scouting Club Member</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-3"></i>Community Service Volunteer</li>
+                                    <li class="flex items-center"><i class="fas fa-star text-purple-500 mr-3"></i>Leadership Skills Development</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="bg-white rounded-xl p-6">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-green-600 mb-2">GPA: 5.0/5.0</div>
+                                <div class="text-gray-600">Excellent Foundation in Science</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Academic Achievements -->
+    <section class="py-20 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Academic Achievements</h2>
+                <p class="text-xl text-gray-600">Recognition and accomplishments throughout my educational journey</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-medal text-2xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Academic Excellence</h3>
+                    <p class="text-gray-600 mb-2">Consistent high performance</p>
+                    <p class="text-sm text-gray-500">Throughout all educational levels</p>
+                </div>
+
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-2xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Leadership Roles</h3>
+                    <p class="text-gray-600 mb-2">Student representative positions</p>
+                    <p class="text-sm text-gray-500">Demonstrating responsibility and initiative</p>
+                </div>
+
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-2xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Technical Skills</h3>
+                    <p class="text-gray-600 mb-2">Programming and documentation</p>
+                    <p class="text-sm text-gray-500">Developed through coursework</p>
+                </div>
+
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-trophy text-2xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Competition Success</h3>
+                    <p class="text-gray-600 mb-2">Coding competitions</p>
+                    <p class="text-sm text-gray-500">Active participation and achievements</p>
+                </div>
+
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-heart text-2xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Community Service</h3>
+                    <p class="text-gray-600 mb-2">Volunteer activities</p>
+                    <p class="text-sm text-gray-500">Social responsibility initiatives</p>
+                </div>
+
+                <div class="achievement-badge reveal bg-white p-8 rounded-2xl shadow-lg text-center">
+                    <div class="w-16 h-16 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-graduation-cap text-2xl text-indigo-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Continuous Learning</h3>
+                    <p class="text-gray-600 mb-2">Self-improvement focus</p>
+                    <p class="text-sm text-gray-500">Always seeking knowledge</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Developed -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Skills Developed Through Education</h2>
+                <p class="text-xl text-gray-600">Comprehensive skill set built through academic experiences</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="reveal text-center">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-brain text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Analytical Thinking</h3>
+                    <p class="text-gray-600">Developed through scientific and mathematical studies</p>
+                </div>
+
+                <div class="reveal text-center">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-code text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Programming Skills</h3>
+                    <p class="text-gray-600">Built through computer science coursework</p>
+                </div>
+
+                <div class="reveal text-center">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Collaboration</h3>
+                    <p class="text-gray-600">Enhanced through group projects and activities</p>
+                </div>
+
+                <div class="reveal text-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-presentation text-3xl text-red-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Communication</h3>
+                    <p class="text-gray-600">Improved through presentations and reports</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2">Nafiz Ahmed</h3>
+                <p class="text-gray-400">Computer Science Student • AIUB</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:nafiz.ahmed@example.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Nafiz Ahmed. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
