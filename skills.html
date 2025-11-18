@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise - Nafiz Ahmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.26.0/plotly.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #667eea;
+            transform: translateY(-2px);
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .skill-card {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .skill-bar {
+            width: 0%;
+            transition: width 2s ease-in-out;
+        }
+        .skill-bar.animate {
+            width: var(--skill-width);
+        }
+        .category-icon {
+            transition: all 0.3s ease;
+        }
+        .skill-card:hover .category-icon {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-xl font-bold text-gray-900">Nafiz Ahmed</h1>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+                        <a href="skills.html" class="nav-link text-gray-900 font-medium">Skills</a>
+                        <a href="projects.html" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+                        <a href="experience.html" class="nav-link text-gray-600 hover:text-gray-900">Experience</a>
+                        <a href="education.html" class="nav-link text-gray-600 hover:text-gray-900">Education</a>
+                        <a href="certificates.html" class="nav-link text-gray-600 hover:text-gray-900">Certificates</a>
+                        <a href="contact.html" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="index.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="skills.html" class="block px-3 py-2 text-gray-900 font-medium">Skills</a>
+                <a href="projects.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Projects</a>
+                <a href="experience.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Experience</a>
+                <a href="education.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Education</a>
+                <a href="certificates.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Certificates</a>
+                <a href="contact.html" class="block px-3 py-2 text-gray-600 hover:text-gray-900">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 bg-gradient-to-br from-purple-600 to-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="reveal">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Skills & Expertise</h1>
+                <p class="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+                    A comprehensive overview of my technical abilities, professional competencies, and areas of expertise
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Overview -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Core Competencies</h2>
+                <p class="text-xl text-gray-600">Technical skills and professional abilities developed through academic and practical experience</p>
+            </div>
+
+            <!-- Skills Radar Chart -->
+            <div class="mb-20 reveal">
+                <div class="bg-gray-50 rounded-2xl p-8">
+                    <h3 class="text-2xl font-semibold text-center mb-8">Skills Radar</h3>
+                    <div id="skillsRadar" style="height: 400px;"></div>
+                </div>
+            </div>
+
+            <!-- Technical Skills -->
+            <div class="mb-16 reveal">
+                <h3 class="text-3xl font-bold text-center mb-12">Technical Skills</h3>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div class="skill-card bg-gray-50 p-8 rounded-2xl">
+                        <div class="text-center mb-6">
+                            <div class="category-icon w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-code text-2xl text-purple-600"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">Programming Languages</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">C/C++</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-purple-600 h-2 rounded-full" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Java</span>
+                                    <span class="text-gray-600">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-purple-600 h-2 rounded-full" style="--skill-width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Python</span>
+                                    <span class="text-gray-600">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-purple-600 h-2 rounded-full" style="--skill-width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Web Technologies -->
+                    <div class="skill-card bg-gray-50 p-8 rounded-2xl">
+                        <div class="text-center mb-6">
+                            <div class="category-icon w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-globe text-2xl text-blue-600"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">Web Technologies</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">HTML/CSS</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-blue-600 h-2 rounded-full" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">JavaScript</span>
+                                    <span class="text-gray-600">70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-blue-600 h-2 rounded-full" style="--skill-width: 70%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Responsive Design</span>
+                                    <span class="text-gray-600">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-blue-600 h-2 rounded-full" style="--skill-width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Platforms -->
+                    <div class="skill-card bg-gray-50 p-8 rounded-2xl">
+                        <div class="text-center mb-6">
+                            <div class="category-icon w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-tools text-2xl text-green-600"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">Tools & Platforms</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Git/GitHub</span>
+                                    <span class="text-gray-600">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-green-600 h-2 rounded-full" style="--skill-width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">LaTeX/Overleaf</span>
+                                    <span class="text-gray-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-green-600 h-2 rounded-full" style="--skill-width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">VS Code</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-green-600 h-2 rounded-full" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Professional Skills -->
+            <div class="mb-16 reveal">
+                <h3 class="text-3xl font-bold text-center mb-12">Professional Skills</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Leadership & Communication -->
+                    <div class="skill-card bg-gray-50 p-8 rounded-2xl">
+                        <div class="text-center mb-6">
+                            <div class="category-icon w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-2xl text-orange-600"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">Leadership & Communication</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Team Leadership</span>
+                                    <span class="text-gray-600">82%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-orange-600 h-2 rounded-full" style="--skill-width: 82%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Public Speaking</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-orange-600 h-2 rounded-full" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Event Organization</span>
+                                    <span class="text-gray-600">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-orange-600 h-2 rounded-full" style="--skill-width: 88%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Analytical & Problem-Solving -->
+                    <div class="skill-card bg-gray-50 p-8 rounded-2xl">
+                        <div class="text-center mb-6">
+                            <div class="category-icon w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-brain text-2xl text-red-600"></i>
+                            </div>
+                            <h4 class="text-xl font-semibold">Analytical & Problem-Solving</h4>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Critical Thinking</span>
+                                    <span class="text-gray-600">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-red-600 h-2 rounded-full" style="--skill-width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Problem Analysis</span>
+                                    <span class="text-gray-600">88%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-red-600 h-2 rounded-full" style="--skill-width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium">Research Skills</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2">
+                                    <div class="skill-bar bg-red-600 h-2 rounded-full" style="--skill-width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tools Proficiency -->
+            <div class="reveal">
+                <h3 class="text-3xl font-bold text-center mb-12">Tools Proficiency</h3>
+                
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-python text-4xl text-blue-500 mb-3"></i>
+                        <p class="font-medium">Python</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-java text-4xl text-red-500 mb-3"></i>
+                        <p class="font-medium">Java</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-html5 text-4xl text-orange-500 mb-3"></i>
+                        <p class="font-medium">HTML5</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-css3-alt text-4xl text-blue-600 mb-3"></i>
+                        <p class="font-medium">CSS3</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-git-alt text-4xl text-red-600 mb-3"></i>
+                        <p class="font-medium">Git</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fab fa-github text-4xl text-gray-800 mb-3"></i>
+                        <p class="font-medium">GitHub</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-file-alt text-4xl text-purple-500 mb-3"></i>
+                        <p class="font-medium">LaTeX</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-code text-4xl text-green-500 mb-3"></i>
+                        <p class="font-medium">VS Code</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-database text-4xl text-yellow-600 mb-3"></i>
+                        <p class="font-medium">MySQL</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-leaf text-4xl text-green-600 mb-3"></i>
+                        <p class="font-medium">MongoDB</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-chart-bar text-4xl text-blue-500 mb-3"></i>
+                        <p class="font-medium">Excel</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-presentation text-4xl text-red-500 mb-3"></i>
+                        <p class="font-medium">PowerPoint</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-6">
+                <h3 class="text-2xl font-bold mb-2">Nafiz Ahmed</h3>
+                <p class="text-gray-400">Computer Science Student • AIUB</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="mailto:nafiz.ahmed@example.com" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fas fa-envelope text-xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="https://github.com/nafizahmed" class="text-gray-400 hover:text-white transition-colors">
+                    <i class="fab fa-github text-xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                © 2024 Nafiz Ahmed. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Skills Radar Chart
+        const skillsData = [{
+            type: 'scatterpolar',
+            r: [85, 80, 75, 85, 90, 88, 82, 85],
+            theta: ['Programming', 'Web Dev', 'Tools', 'Documentation', 'Leadership', 'Problem Solving', 'Communication', 'Teamwork'],
+            fill: 'toself',
+            name: 'Skills',
+            line: {
+                color: '#667eea'
+            },
+            fillcolor: 'rgba(102, 126, 234, 0.2)'
+        }];
+
+        const layout = {
+            polar: {
+                radialaxis: {
+                    visible: true,
+                    range: [0, 100],
+                    tickfont: {
+                        size: 12
+                    }
+                },
+                angularaxis: {
+                    tickfont: {
+                        size: 14
+                    }
+                }
+            },
+            showlegend: false,
+            margin: {
+                t: 50,
+                b: 50,
+                l: 50,
+                r: 50
+            },
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)'
+        };
+
+        const config = {
+            displayModeBar: false,
+            responsive: true
+        };
+
+        Plotly.newPlot('skillsRadar', skillsData, layout, config);
+    </script>
+</body>
+</html>
